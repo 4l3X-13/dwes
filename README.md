@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ DWES
+# DWES
 
 ### Desarrollo Web en Entorno Servidor
 
@@ -16,7 +16,7 @@
 
 ---
 
-## 🧠 Sobre el repositorio
+## Sobre el repositorio
 
 Repositorio personal de **Desarrollo Web en Entorno Servidor (DWES)** correspondiente a **2º DAW**.
 
@@ -26,7 +26,7 @@ Aquí se recopilarán las prácticas, ejercicios, proyectos y diferentes recurso
 
 ---
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 <div align="center">
 
@@ -40,7 +40,7 @@ Aquí se recopilarán las prácticas, ejercicios, proyectos y diferentes recurso
 
 ---
 
-## 💻 Entorno de desarrollo
+## Entorno de desarrollo
 
 ```bash
 # Clonar repositorio
@@ -52,7 +52,7 @@ cd dwes
 
 ---
 
-## 📈 Progreso
+## Progreso
 
 <div align="center">
 
@@ -69,14 +69,7 @@ Learning backend development...
 
 ---
 
-## 🧪 Filosofía
-
-Este repositorio no pretende ser únicamente una colección de ejercicios.
-
-El objetivo es documentar el proceso de aprendizaje y evolución durante **2º DAW**, manteniendo el código organizado y utilizando herramientas y metodologías similares a las utilizadas en un entorno profesional.
-
-
-## 👨‍💻 Autor
+## Autor
 
 <div align="center">
 
