@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: cabecera-head('Inicializar')}">
+    <meta charset="UTF-8">
+    <title>Inicializar</title>
+</head>
+<body>
+
+    <header th:replace="~{fragments/layout :: menu}"></header>
+
+    <main>
+        <h1>Inicializar películas</h1>
+        <p style="background-color: #dcfce7; border-left: 5px solid #16a34a; color: #166534; padding: 10px 14px; font-weight: bold; border-radius: 4px;">
+            <span th:text="${mensaje}">Listado de películas inicializado con éxito.</span>
+        </p>
+        <p>Total de películas cargadas en memoria: <strong th:text="${totalPeliculas}">6</strong></p>
+
+        <h3>Películas añadidas:</h3>
+        <ul style="line-height: 1.8;">
+            <li th:each="p, stat : ${peliculas}">
+                <strong th:text="${p.titulo}">Título</strong> -
+                <span th:text="${p.genero}">Género</span>
+                (<a th:href="@{/pelicula/{id}(id=${stat.index})}">ver detalle</a>)
+            </li>
+        </ul>
+
+        <p style="margin-top: 20px;">
+            <a th:href="@{/peliculas}" class="btn-detalle">Ir al listado de películas</a>
+            <a th:href="@{/}" class="btn-volver">Volver al inicio</a>
+        </p>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: pie}"></footer>
+
+</body>
+</html>

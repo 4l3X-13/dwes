@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: cabecera-head(${pelicula.titulo})}">
+    <meta charset="UTF-8">
+    <title>Detalle de Película</title>
+</head>
+<body>
+
+    <header th:replace="~{fragments/layout :: menu}"></header>
+
+    <main>
+        <p>
+            <a th:href="@{/peliculas}" class="btn-volver">&larr; Volver al listado</a>
+        </p>
+
+        <!-- Detalle de la película con fondo dinámico si es clásica o moderna (Ampliación) -->
+        <div class="detalle-peli" th:classappend="${pelicula.esClasica ? 'fondo-clasica' : 'fondo-moderna'}">
+            <h1 th:text="${pelicula.titulo}">Título de la película</h1>
+
+            <p>
+                <img th:src="${pelicula.urlPortada}" th:alt="${pelicula.titulo}" width="200">
+            </p>
+
+            <!-- Indicador de clásico con th:if y th:unless booleano -->
+            <p th:if="${pelicula.esClasica}" class="clasica">
+                Esta película es un clásico (estrenada antes del año 2000).
+            </p>
+            <p th:unless="${pelicula.esClasica}" class="moderna">
+                Película moderna (estrenada en el año 2000 o posterior).
+            </p>
+
+            <ul>
+                <li><strong>Posición en la lista:</strong> <span th:text="${posicion}">0</span></li>
+                <li><strong>Género:</strong> <span th:text="${pelicula.genero}">Género</span></li>
+                <li><strong>Puntuación:</strong> <strong th:text="${pelicula.puntuacion}">8.5</strong> / 10</li>
+                <li><strong>Fecha de estreno:</strong> <span th:text="${pelicula.fechaEstreno}">2000-01-01</span></li>
+                <li>
+                    <strong>Ficha en IMDB:</strong>
+                    <a th:href="${pelicula.url}" target="_blank" class="btn-imdb">Ver en IMDB</a>
+                </li>
+            </ul>
+
+            <p style="margin-top: 15px;">
+                <a th:if="${hayAnterior}" th:href="@{/pelicula/{id}(id=${idAnterior})}" class="btn-volver">&larr; Anterior</a>
+                <a th:if="${haySiguiente}" th:href="@{/pelicula/{id}(id=${idSiguiente})}" class="btn-volver">Siguiente &rarr;</a>
+            </p>
+        </div>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: pie}"></footer>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: cabecera-head('Listado de Películas')}">
+    <meta charset="UTF-8">
+    <title>Listado de Películas</title>
+</head>
+<body>
+
+    <header th:replace="~{fragments/layout :: menu}"></header>
+
+    <main>
+        <h1>Listado de películas</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 70px;">Portada</th>
+                    <th>Título</th>
+                    <th>Género</th>
+                    <th>Puntuación</th>
+                    <th>Fecha de estreno</th>
+                    <th style="width: 120px;">Detalles</th>
+                    <th style="width: 90px;">IMDB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p, stat : ${peliculas}">
+                    <td>
+                        <img th:src="${p.urlPortada}" th:alt="${p.titulo}" class="portada-tabla">
+                    </td>
+                    <td>
+                        <a th:href="@{/pelicula/{id}(id=${stat.index})}"
+                           th:text="${p.titulo}"
+                           style="font-size: 15px; font-weight: bold;">Título</a>
+                    </td>
+                    <td th:text="${p.genero}">Género</td>
+                    <td>
+                        <strong th:text="${p.puntuacion}">8.5</strong> / 10
+                    </td>
+                    <td th:text="${p.fechaEstreno}">2000-01-01</td>
+                    <td>
+                        <a th:href="@{/pelicula/{id}(id=${stat.index})}" class="btn-detalle">Ver detalle</a>
+                    </td>
+                    <td>
+                        <a th:href="${p.url}" target="_blank" class="btn-imdb">IMDB</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 20px;">
+            <a th:href="@{/}" class="btn-volver">Volver al inicio</a>
+            <a th:href="@{/inicializar}" class="btn-volver">Reinicializar datos</a>
+        </p>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: pie}"></footer>
+
+</body>
+</html>

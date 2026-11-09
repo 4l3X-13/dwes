@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: cabecera-head('Inicio')}">
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+
+    <header th:replace="~{fragments/layout :: menu}"></header>
+
+    <main>
+        <h1>Práctica 1: Plantillas básicas con Thymeleaf</h1>
+        <p>Bienvenido a la aplicación web de gestión de películas.</p>
+
+        <h3>Enlaces de la práctica:</h3>
+        <ul class="lista-opciones">
+            <li>
+                <a th:href="@{/peliculas}">Listado de películas</a>
+                <p>Ver la tabla completa con todas las películas cargadas.</p>
+            </li>
+            <li>
+                <a th:href="@{/pelicula/0}">Ver una película</a>
+                <p>Consultar la ficha detallada de la primera película.</p>
+            </li>
+            <li>
+                <a th:href="@{/inicializar}">Inicializar listado</a>
+                <p>Cargar o regenerar el listado de películas en memoria.</p>
+            </li>
+        </ul>
+    </main>
+
+    <footer th:replace="~{fragments/layout :: pie}"></footer>
+
+</body>
+</html>

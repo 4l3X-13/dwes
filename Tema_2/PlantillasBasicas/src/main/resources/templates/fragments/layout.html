@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="cabecera-head(titulo)">
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Películas</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <!-- Menú común -->
+    <header th:fragment="menu">
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/peliculas}">Listado de películas</a>
+            <a th:href="@{/pelicula/0}">Ver película</a>
+            <a th:href="@{/inicializar}">Inicializar</a>
+        </nav>
+    </header>
+
+    <!-- Pie común -->
+    <footer th:fragment="pie">
+        <hr>
+        <p>Práctica 1 - Plantillas con Thymeleaf - 2º DAW</p>
+    </footer>
+
+</body>
+</html>
